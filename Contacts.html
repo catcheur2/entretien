@@ -1,0 +1,397 @@
+<?php
+    $_result="";
+    if (isset($_POST['submit'])){
+        require 'mail/phpmailer/PHPMailerAutoload.php';
+        $mail = new phpmailer;
+        $mail->isSMTP();
+
+        $mail->Host='mail.ashkloud.com';
+        $mail->Port=465;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='ssl';
+
+        $mail->Username='contact@grandluxenettoyage.com';
+        $mail->Password='ABc321TJ@';
+
+        $mail->setFrom($_POST['email'],$_POST['nom']);
+        $mail->addAddress('contact@grandluxenettoyage.com');
+        $mail->addReplyTo($_POST['email'],$_POST['nom']);
+
+        $mail->isHTML(true);
+        $mail->Subject='Formulaire de contact';
+        $mail->Body='<h1 align=center>Nom:'.$_POST['nom'].'<br>Sujet: '.$_POST['sujet'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['message'].'</h1>';
+
+        if(!$mail->send()){
+            $_result="erreur!!";
+        }
+        else{
+            $result="Merci ".$_POST['nom']."de nous avoir contacté. A Bientot!";
+        }
+    }
+?>
+
+<!doctype html>
+<html class="no-js" lang="en">
+	
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Contacts | Grand Luxe Nettoyage</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- favicon -->		
+		<link rel="shortcut icon" type="image/x-icon" href="img/logo/logo.ico">
+
+		<!-- all css here -->
+
+		<!-- bootstrap v3.3.6 css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- owl.carousel css -->
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/owl.transitions.css">
+        <!-- meanmenu css -->
+        <link rel="stylesheet" href="css/meanmenu.min.css">
+		<!-- font-awesome css -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/icon.css">
+		<!-- magnific css -->
+        <link rel="stylesheet" href="css/magnific.min.css">
+		<!-- venobox css -->
+		<link rel="stylesheet" href="css/venobox.css">
+		<!-- style css -->
+		<link rel="stylesheet" href="style.css">
+		<!-- responsive css -->
+		<link rel="stylesheet" href="css/responsive.css">
+
+		<!-- modernizr css -->
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	</head>
+		<body>
+
+		<!--[if lt IE 8]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+        <div id="preloader"></div>
+                <header class="header-style-3">
+            <!-- Start top bar -->
+            <div class="topbar-area topbar-3 fix hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class=" col-md-8 col-sm-6">
+                            <div class="topbar-left">
+                                <ul>
+                                    <li><a href="#"><i class="icon icon-map-marker"></i>Rue du Stade Omnisport de Douala</a></li>
+                                    <li><a href="#"><i class="icon icon-phone"></i>+237 697 508 919</a></li>
+                                    <li><a href="#"><i class="icon icon-clock"></i>De 9h00 à 17h00</a></li>
+                                </ul>  
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="topbar-right">
+                               <div class="quote-button">
+                                    <a href="devis.html" class="quote-btn">Devis</a>
+                                </div>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End top bar -->
+            <!-- header-area start -->
+            <div id="sticker" class="header-area header-area-3 hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <!-- logo start -->
+                        <div class="col-md-3 col-sm-3">
+                            <div class="logo">
+                                <!-- Brand -->
+                                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                                    <img src="img/logo/logo1.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- logo end -->
+                        <div class="col-md-9 col-sm-9">
+                            <div class="header-right-link">
+                                
+                            </div>
+                            <!-- mainmenu start -->
+                            <nav class="navbar navbar-default">
+                                <div class="collapse navbar-collapse" id="navbar-example">
+                                    <div class="main-menu">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="index.html">Accueil</a></li>
+                                            <li><a href="À Propos.html">A Propos</a></li>
+                                            <li><a href="Services.html">Services</a></li>
+                                            <li><a href="Projets.html">Nos Projets</a></li>
+                                            <li><a href="Contacts.html">contacts</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- mainmenu end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-area end -->
+            <!-- mobile-menu-area start -->
+            <div class="mobile-menu-area hidden-lg hidden-md hidden-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mobile-menu">
+                                <div class="logo">
+                                    <a href="index.html"><img src="img/logo/logo1.png" alt="" /></a>
+                                </div>
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li><a href="index.html">Accueil</a></li>
+                                        <li><a href="À Propos.html">A Propos</a></li>
+                                        <li><a href="Services.html">Services</a></li>
+                                        <li><a href="Projets.html">Nos Projets</a></li>
+                                        <li><a href="Contacts.html">contacts</a></li>
+                                    </ul>
+                                </nav>
+                            </div>					
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile-menu-area end -->		
+        </header>
+        <!-- header end -->
+        <!-- Start Bottom Header -->
+        <div class="page-area">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcrumb">
+                            <div class="section-headline white-headline text-center">
+                                <h3>contacts</h3>
+                            </div>
+                            <ul>
+                                <li class="home-bread">Accueil</li>
+                                <li>Contacts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Header -->
+        <!-- Start contact Area -->
+        <div class="contact-page area-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="contact-head">
+                            <h3>Demande de  <span class="color">Contact </span></h3>
+                            <p>Envoyez-nous un message à travers ce formulaire. Nous Fixerons un moment pour discuter par téléphone ou en personne afin d'en savoir plus sur vos besoins.</p>
+                            <div class="project-share">
+                                <h5>Notre Numéro de Téléphone:</h5>
+                                <ul class="project-social">
+                                    <li>
+                                        +237 697 508 919 / 675 162 261
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="project-share">
+                                <h5>Notre lien social :</h5>
+                                <ul class="project-social">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End contact icon -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="contact-form">
+                            <div class="row">
+                                <form class="contact-form" method="post" action="">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="name" name="nom" class="form-control" placeholder="Nom" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="email" name="email" class="email form-control" id="email" placeholder="Email" required data-error="Please enter your email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <input type="text" name="sujet" id="msg_subject" class="form-control" placeholder="Sujet" required data-error="Please enter your message subject">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <textarea id="message" rows="7" name="message" placeholder="Message" class="form-control" required data-error="Write your message"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                        <input type="submit" name="submit" id="submit" value="Envoyer" class="contact-btn">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End contact Form -->
+                </div>
+            </div>
+        </div>
+        <footer class="footer-1">
+    <div class="footer-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <div class="footer-logo">
+                                <a href="#"><img src="img/logo/logo1.png" alt=""></a>
+                            </div>
+                            <p>We help agencies to define their new business objectives and then create the road map to get them there by devising a business.We help agencies to define their new business.</p>
+
+                            <div class="footer-contacts">
+                                <p><span>Tel:</span> +237 697 508 919 / 675 162 261</p>
+                                <p><span>Email:</span> grandluxenettoyage@gmail.com</p>
+                                <p><span>Localisation:</span> Rue du Stade Omnisport de Douala</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>Liens services</h4>
+                            <div class="footer-services-link">
+                                <ul class="footer-list">
+                                    <li><a href="Services.html#nettoyage">Nettoyage des Mobiliers </a></li>
+                                    <li><a href="hygiène.html#hygiène">Désinfection</a></li>
+                                    <li><a href="hygiène.html#hygiène">Dératisation </a></li>
+                                    <li><a href="hygiène.html#hygiène">Désinsectisation</a></li>
+                                </ul>
+                                <ul class="footer-list hidden-sm">
+                                    <li><a href="Services.html#nettoyage">Nettoyage des Surfaces</a></li>
+                                    <li><a href="déménagement.html#déménagement">Déménagement</a></li>
+                                    <li><a href="hygiène.html#hygiène">Déreptisation </a></li>
+                                    <li><a href="placement.html#placement">Placement des agents </a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-icons">
+                                <h5>Suivez-nous</h5>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>S'abonner à</h4>
+                            <p>
+                                We help agencies to define their new business objectives and then create the road map to get them there by devising a business.
+                            </p>
+                            <div class="subs-feilds">
+                                <div class="suscribe-input">
+                                    <input type="email" class="email form-control width-80" id="sus_email" placeholder="Entrer Email">
+                                    <button type="submit" id="sus_submit" class="add-btn">souscrire</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+            </div>
+        </div>
+    </div>
+    <!-- End footer area -->
+    <div class="footer-area-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="copyright">
+                        <p>
+                            Copyright © 2023
+                            <a href="#">MONKAM TECHNOLOGIES</a> All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+		
+		
+		
+		<!-- all js here -->
+
+		<!-- jquery latest version -->
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- owl.carousel js -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Counter js -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<!-- Google Map js -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBceNl50o3BU6LrsIGJxSL9tKKvqBKIeVs"></script>
+        <script src="js/mapcode.js"></script>
+		<!-- waypoint js -->
+		<script src="js/waypoints.js"></script>
+		<!-- isotope js -->
+        <script src="js/isotope.pkgd.min.js"></script>
+        <!-- stellar js -->
+        <script src="js/jquery.stellar.min.js"></script>
+		<!-- magnific js -->
+        <script src="js/magnific.min.js"></script>
+		<!-- venobox js -->
+		<script src="js/venobox.min.js"></script>
+        <!-- meanmenu js -->
+        <script src="js/jquery.meanmenu.js"></script>
+		<!-- Form validator js -->
+		<script src="js/form-validator.min.js"></script>
+		<!-- plugins js -->
+		<script src="js/plugins.js"></script>
+		<!-- main js -->
+		<script src="js/main.js"></script>
+	</body>
+
+</html>

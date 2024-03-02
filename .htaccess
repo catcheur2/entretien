@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+    
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^grandluxenettoyage\.com [NC]
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://grandluxenettoyage.com/$1 [R,L]
+    
+</IfModule>
+
+
+

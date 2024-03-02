@@ -1,0 +1,1141 @@
+<!--
+<?php
+    $_result="";
+    if (isset($_POST['save'])){
+        require 'mail/phpmailer/PHPMailerAutoload.php';
+        $mail = new phpmailer;
+        $mail->isSMTP();
+
+        $mail->Host='mail.ashkloud.com';
+        $mail->Port=465;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='ssl';
+
+        $mail->Username='contact@grandluxenettoyage.com';
+        $mail->Password='ABc321TJ@';
+        
+
+        $mail->setFrom($_POST['email'],$_POST['nom']);
+        $mail->addAddress('contact@grandluxenettoyage.com');
+        $mail->addReplyTo($_POST['email'],$_POST['nom']);
+
+        $mail->isHTML(true);
+        $mail->Subject='Formulaire de contact';
+        $mail->Body='<h1 align=center>Nom:'.$_POST['nom'].'<br>Sujet: '.$_POST['sujet'].'<br>Email: '.$_POST['email'].'<br>Message: '.$_POST['message'].'</h1>';
+
+        if(!$mail->send()){
+            $_result="erreur!!";
+        }
+        else{
+            $result="Merci ".$_POST['nom']."de nous avoir contacté. A Bientot!";
+        }
+    }
+
+    
+    $_results="";
+    if (isset($_POST['devis'])){
+        require 'mail/phpmailer/PHPMailerAutoload.php';
+        $mail = new phpmailer;
+        $mail->isSMTP();
+
+        $mail->Host='mail.ashkloud.com';
+        $mail->Port=465;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='ssl';
+
+        $mail->Username='contact@grandluxenettoyage.com';
+        $mail->Password='ABc321TJ@';
+
+        $mail->setFrom($_POST['email'],$_POST['nom']);
+        $mail->addAddress('contact@grandluxenettoyage.com');
+        $mail->addReplyTo($_POST['email'],$_POST['nom']);
+
+        $mail->isHTML(true);
+        $mail->Subject='Formulaire de devis';
+        $mail->Body='<h1 align=center>Nom:'.$_POST['nom'].'<br>Adresse: '.$_POST['adresse'].'<br>Email: '.$_POST['email'].'<br>Téléphone: '.$_POST['Téléphone'].'<br>Service: '.$_POST['service'].'<br>Nombres de personnes: '.$_POST['nbre_personne'].'<br>Date de début: '.$_POST['date_debut'].'<br>Heure de début: '.$_POST['heure_debut'].'<br>Détails: '.$_POST['message'].'</h1>';
+
+        if(!$mail->send()){
+            $_result="erreur!!";
+        }
+        else{
+            $results="Merci ".$_POST['nom']."de nous avoir contacté. A Bientot!";
+        }
+    }
+
+    $_result="";
+    if (isset($_POST['recherche'])){
+        $chk = implode(",", $_POST['chkl']); 
+        /*$checkbox1 = $_POST['chkl'] ; 
+        for ($i=0; $i<sizeof ($checkbox1);$i++) {
+           // echo $checkbox1[$i];
+        }*/
+        require 'mail/phpmailer/PHPMailerAutoload.php';
+        $mail = new phpmailer;
+        $mail->isSMTP();
+
+        $mail->Host='mail.ashkloud.com';
+        $mail->Port=465;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='ssl';
+
+        $mail->Username='contact@grandluxenettoyage.com';
+        $mail->Password='ABc321TJ@';
+
+        //$mail->setFrom($_POST['email'],$_POST['nom']);
+        $mail->addAddress('contact@grandluxenettoyage.com');
+        //$mail->addReplyTo($_POST['email'],$_POST['nom']);
+
+        $mail->isHTML(true);
+        $mail->Subject='Formulaire de connaissance';
+        $mail->Body='<h1 align=center>Choix:'.$chk.'<br>Remarque:'.$_POST['message'].'</h1>';
+
+        if(!$mail->send()){
+            $_result="erreur!!";
+        }
+        else{
+            $result="Merci de nous avoir contacté. A Bientot!";
+        }
+    }
+?>
+-->
+<!doctype html>
+<html class="no-js" lang="fr">
+	
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Accueil | Grand Luxe Nettoyage</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Style css-->
+        <link rel="stylesheet" href="assets/style.css">
+
+		<!-- favicon -->		
+		<link rel="shortcut icon" type="image/x-icon" href="img/logo/logo.ico">
+
+		<!-- all css here -->
+
+        <!------------ GOOGLE FONTS ------------>
+        <link href="https://fonts.googleapis.com/css?family=Anton|Cabin|Lato|Fjalla+One|Montserrat|Roboto&display=swap"
+            rel="stylesheet">
+
+		<!-- bootstrap v3.3.6 css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- owl.carousel css -->
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/owl.transitions.css">
+        <!-- meanmenu css -->
+        <link rel="stylesheet" href="css/meanmenu.min.css">
+        <!-- bootstrap-datetimepicker css -->
+        <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+		<!-- font-awesome css -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/icon.css">
+		<!-- magnific css -->
+        <link rel="stylesheet" href="css/magnific.min.css">
+		<!-- venobox css -->
+		<link rel="stylesheet" href="css/venobox.css">
+		<!-- style css -->
+		<link rel="stylesheet" href="style.css">
+		<!-- responsive css -->
+		<link rel="stylesheet" href="css/responsive.css">
+        <!-- animation -->
+        <link rel="stylesheet" type="text/css" href="css/animation.css"/>
+
+        
+
+        <!------------ CUSTOM STYLE SHEET ------------>
+        <link rel="stylesheet" href="styles.css">
+
+		<!-- modernizr css -->
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	</head>
+		<body>
+
+		<!--[if lt IE 8]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+        <div id="preloader"></div>
+        <header class="header-style-2">
+            <!-- Start top bar -->
+            <div class="topbar-area topbar-2 fix hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class=" col-md-8 col-sm-6">
+                            <div class="topbar-left">
+                                <ul>
+                                    <li><a href="#"><i class="icon icon-map-marker"></i>Rue du Stade Omnisport de Douala</a></li>
+                                    <li><a href="#"><i class="icon icon-phone"></i>+237 697 508 919 / 675 162 261</a></li>
+                                    <li><a href="#"><i class="icon icon-clock"></i>24/7 </a></li>
+                                </ul>  
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="topbar-right">
+                               <div class="quote-button">
+                                    <a href="#devis" class="quote-btn">Dévis</a>
+                                </div>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End top bar -->
+            <!-- header-area start -->
+            <div id="sticker" class="header-area header-area-2 hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <!-- logo start -->
+                        <div class="col-md-3 col-sm-3">
+                            <div class="logo">
+                                <!-- Brand -->
+                                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                                    <img src="img/logo/logo1.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- logo end -->
+                        <div class="col-md-9 col-sm-9">
+                            <div class="header-right-link">
+                                
+                            </div>
+                            <!-- mainmenu start -->
+                            <nav class="navbar navbar-default">
+                                <div class="collapse navbar-collapse" id="navbar-example">
+                                    <div class="main-menu">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="index.html">Accueil</a></li>
+                                            <li><a href="#propos">A Propos</a></li>
+                                            <li><a href="#service">Services</a></li>
+                                            <li><a href="#contact">contacts</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- mainmenu end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-area end -->
+            <!-- Début Onglets sur mobile -->
+            <div class="mobile-menu-area hidden-lg hidden-md hidden-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mobile-menu">
+                                <div class="logo">
+                                    <a href="index.html"><img src="img/logo/logo1.png" alt="" /></a>
+                                </div>
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li><a href="index.html">Accueil</a></li>
+                                        <li><a href="#propos">A Propos</a></li>
+                                        <li><a href="#service">Services</a></li>
+                                        <li><a href="#contact">contacts</a></li>
+                                    </ul>
+                                </nav>
+                            </div>					
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Onglets sur mobile -->		
+        </header>
+        <!-- header end -->
+        <!-- Début slides -->
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <div class="slider-content">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <!-- layer 1 -->
+                                            <div class="slide-in from-up">
+                                                <div class="layer-1">
+                                                    <h1 class="title2"><span class="color">Grand Luxe Nettoyage</span> </h1>
+                                                </div>
+                                            </div>
+                                            <!-- layer 2 -->
+                                            <div class="slide-in from-left">
+                                                <div class="layer-2 ">
+                                                    <p>Nous fournissons les meilleures solutions pour un environnement propre, des services de nettoyage résidentiel à commercial
+                                                        à industriel. Nos horaires flexibles, nous permettent de satisfaire l'ensemble de nos clients. Peu importe l'endroit à 
+                                                        nettoyer, nos professionnels sont à votre écoute.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- layer 3 -->
+                                            <div class="layer-3">
+                                                <a href="#service" class="ready-btn left-btn" >Nos Services</a>
+                                                <a href="#contact" class="ready-btn right-btn" >Contacts</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slider-content">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <!-- layer 1 -->
+                                            <div class="layer-1">
+                                                <h1 class="title2">Grand Luxe Nettoyage c'est aussi les <span class="color">déménagements</span> </h1>
+                                            </div>
+                                            <!-- layer 2 -->
+                                            <div class="slide-in from-right">
+                                                <div class="layer-2 ">
+                                                    <p>Tous les professionnels du déménagement et d'aménagement réunis au même endroit, des solutions
+                                                    personnalisées et entièrement sécurisées de garde-meubles, avec un espace de stockage illimité pour courtes et longues durées.</p>
+                                                </div>
+                                            </div>
+                                            <!-- layer 3 -->
+                                            <div class="fade-in appear">
+                                                <div class="layer-3">
+                                                    <a href="#service" class="ready-btn left-btn" >Nos Services</a>
+                                                    <a href="#contact" class="ready-btn right-btn" >Contacts</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slider-content">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="slide-in from-up">   
+                                                <!-- layer 1 -->
+                                                <div class="layer-1">
+                                                    <h1 class="title2">Comment Nettoyer, aménager vos espaces sans toutefois les <span class="color">assainir ?</span> </h1>
+                                                </div>
+                                                <!-- layer 2 -->
+                                                <div class="layer-2 ">
+                                                <p>Nous fournissons les meilleures solutions pour une lutte et prévention contre les nuisibles. 
+                                                    Si vous avez besoin d'un service de <span class="color">désinfection, de dératisation</span> et bien plus encore...</p>
+                                                </div>
+                                                <!-- layer 3 -->
+                                                <div class="layer-3">
+                                                    <a href="#service" class="ready-btn left-btn" >Nos Services</a>
+                                                    <a href="#contact" class="ready-btn right-btn" >Contacts</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dots">
+                <span onclick="currentslide(1)"></span>
+                <span onclick="currentslide(2)"></span>
+                <span onclick="currentslide(3)"></span>
+            </div>
+        </div><br>
+        <!-- Fin Slides -->
+
+        <!-- service area start -->
+        <div id="qualité" class="choose-area bg-color area-padding">
+            <div class="container">
+                <div class="fade-in">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-headline text-center">
+                                <h3>Pourquoi nous choisir ?</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- single-well end-->
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="well-services text-center">
+                                <div class="services-img">
+                                    <a ><i class="flaticon-cleaning-6"></i></a>
+                                </div>
+                                <div class="main-services">
+                                    <div class="service-content">
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- column end -->
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="about-content">
+                                <h4>Grand Luxe Nettoyage - une <span class="color">équipe formée, expérimentée et performante </span></h4>
+                                <p>
+                                    Les équipes d'expert de Grand Luxe mettent à votre disposition leur savoir-faire
+                                    et leurs expériences pour assurer l'entretien de vos locaux et vous garantir les
+                                    conditions d'hygiène et salubrités aux normes internationales.
+                                    <br>
+                                    Nos équipes sont polyvalentes, dynamiques et dument formées, dans le but
+                                    d'obtenir un rendement à la fine pointe de vos exigences en matière
+                                    d'hygiène et de propreté.
+                                </p>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <!-- single-well end-->
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="about-content">
+                                <h4>Grand Luxe Nettoyage - C'est aussi des <span class="color">prestations selon vos exigences </span></h4>
+                                <p>
+                                    La propreté et l'hygiène reflètent l'image de votre entreprise. C'est pourquoi 
+                                    nous faisons bien plus que nettoyer vos locaux, nous nous engageons avec Vous
+                                    dans vos standard de haut prestige à l'égard de votre clientèle et de vos
+                                    employés.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- column end -->
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="well-services text-center">
+                                <div class="services-img">
+                                    <a ><i class="flaticon-cleaning-8"></i></a>
+                                </div>
+                                <div class="main-services">
+                                    <div class="service-content">
+                                        <h4></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- service-area end -->
+
+        <!-- Début Section A Propos -->
+        <!--<div class="about-page-area area-padding">
+            <div class="fade-in">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="about-image">
+                                <img src="img/about/ae.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="about-content">
+                                <div class="section-headline text-center">
+                                    <h3 id="propos">À Propos </h3>
+                                </div>
+                                <h4>Grand Luxe Nettoyage - L'excellence dans les services de <span class="color">nettoyage résidentiel et commercial </span></h4>
+                                <p>La société Grand luxe entretien est une entreprise de droit camerounais créee en novembre
+                                     2020. Le siège social est à la rue du stade omnisport. Elle s’est donnée pour vocation
+                                      la volonté manifeste de lutter contre les salissures qui détériorent les surfaces, 
+                                      les prédateurs qui détruisent les stocks et d’instaurer un climat de propreté.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- Fin Section A propos -->
+
+
+
+        
+
+
+
+
+        <!-- Start portfolio Area -->
+		<div class="project-area project-column-3 area-padding">
+            <div class="fade-in">
+                <div class="container">
+                    <div class="row">
+                        <div class="section-headline text-center">
+                            <h3 id="service">Services</h3>
+                        </div>
+                        <!-- Start Portfolio -page -->
+                        <div class="row">
+                            <div class="owl-filter">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="project-menu filter-menu">
+                                                <ul>
+                                                    <li class="filter-btn" data-filter="*">Tout</li>
+                                                    <li class="filter-btn" data-filter=".nettoyage">Nettoyage & Entretien</li>
+                                                    <li class="filter-btn" data-filter=".hygiène">Hygiène & Assainissement</li>
+                                                    <li class="filter-btn" data-filter=".déménagement">Déménagement & Aménagement</li>
+                                                    <li class="filter-btn" data-filter=".placement">Placement des agents</li>
+                                                </ul>
+                                            </div>
+                                            <div class="filter-item">
+                                                <div class="item nettoyage"><img src="img/project/22.jpg" alt="" /></div>
+                                                <div class="item déménagement"><img src="img/project/21.jpeg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/25.jpeg" alt="" /></div>
+                                                <div class="item nettoyage"><img src="img/project/78.jpg" alt="" /></div>
+                                                <div class="item nettoyage"><img src="img/project/50.jpeg" alt="" /></div>
+                                                <div class="item nettoyage"><img src="img/project/19.jpg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/75.jpeg" alt="" /></div>
+                                                <div class="item nettoyage"><img src="img/project/73.jpg" alt="" /></div>
+                                                <div class="item déménagement"><img src="img/project/70.jpg" alt="" /></div>
+                                                <div class="item déménagement"><img src="img/project/11.jpg" alt="" /></div>
+                                                <div class="item déménagement"><img src="img/project/13.webp" alt="" /></div>
+                                                <div class="item déménagement"><img src="img/project/17.jpg" alt="" /></div>
+                                                <div class="item déménagement"><img src="img/project/18.jpg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/2.jpg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/16.jpg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/3.jpg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/4.jpg" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/5.webp" alt="" /></div>
+                                                <div class="item hygiène"><img src="img/project/10.jpg" alt="" /></div>
+                                                <div class="item placement"><img src="img/project/20.jpeg" alt="" /></div>
+                                                <div class="item placement"><img src="img/project/meet.jpeg" alt="" /></div>
+                                                <div class="item placement"><img src="img/project/new.jpeg" alt="" /></div>
+                                                <div class="item nettoyage"><img src="img/project/68.jpg" alt="" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <a href="https://wa.me/+237697508919" class="ready-btn btn btn-default" >Contacts</a>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+			<!-- End main content -->
+		</div>
+		<!-- End portfolio Area -->
+
+        <!-- End Header -->
+        <div class="order-area area-padding ">
+            <div class="fade-in">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8 col-sm-12">
+                            <div class="section-headline text-center">
+                                <h3 id="devis">Dévis</h3>
+                                <p>Exprimez nous ici votre besoin.</p>
+                            </div>
+                            <!-- Start Order From -->
+                            <div class="order-form">
+                                <div class="row">
+                                    <form method="post" action="" class="contact-form">
+                                        <!-- single feilds -->
+                                        <div class="sign-feilds">
+                                            <div class="input-text">
+                                                <input type="text" name="nom" id="name" class="form-control width-50" placeholder="Votre Nom" required data-error="Please enter your name">
+                                                <input type="text" name="adresse" class="form-control width-50 last-name" id="address" placeholder="Adresse" required data-error="Please enter your address">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <!-- single feilds -->
+                                        <div class="sign-feilds">
+                                            <div class="input-text">
+                                                <input type="email" name="email" class="email form-control width-50" id="eemail" placeholder="Email" required data-error="Please enter your email">
+                                                <input type="text" name="Téléphone" class="address form-control width-50 last-name" id="phone" placeholder="Numéro de Téléphone" required data-error="Please enter your address">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <!-- single feilds -->
+                                        <div class="sign-feilds">
+                                            <div class="input-text">
+                                                <select id="sel" name="service" class=" form-control width-50" name="select-services">
+                                                    <option value="0">selectionner le service</option>
+                                                    <option value="Nettoyage et Entretieng">Nettoyage et Entretien</option>
+                                                    <option value="Hygiène et assainissement">Hygiène et assainissement</option>
+                                                    <option value="Aménagement & Déménagement">Aménagement & Déménagement</option>
+                                                    <option value="Placement des agents">Placement des agents</option>
+                                                </select>
+                                                <select id="sele" name="nbre_personne" class=" form-control width-50 last-name" name="select-member">
+                                                    <option value="0">Combien de Personnes</option>
+                                                    <option value="1">Une Personne</option>
+                                                    <option value="2">2 Personnes</option>
+                                                    <option value="3">3 Personnes</option>
+                                                    <option value="4">4 Personnes</option>
+                                                    <option value="5">5 Personnes</option>
+                                                    <option value="6">6 Personnes</option>
+                                                </select>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <!-- single feilds -->
+                                        <div class="sign-feilds">
+                                            <div class="form-group form-control time-zone width-50">
+                                                <p class="from-slogan">Sélectionner la date de début des travaux</p>
+                                                <div class="input-group date" id="datetimepicker1">
+                                                    <input type='text' name="date_debut" class="form-control" />
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-control time-zone width-50 last-name">
+                                                <p class="from-slogan">Sélectionnez l'heure de début des travaux</p>
+                                                <div class="input-group time" id="datetimepicker3">
+                                                    <input type='text' name="heure_debut" class="form-control" />
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-clock-o"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="message" name="message" rows="7" placeholder="Détaillez nous ici votre besoin" class="form-control" required data-error="Write your message"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <!-- single feilds -->
+                                        <div class="sign-feilds">
+                                            <div class="submit-btn">
+                                                <button type="submit" name="devis" id="submit_mg" class="add-btn contact-btn">Envoyer</button>
+                                                <div id="msg_Submit" class="h3 text-center hidden"></div>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
+                            </div>
+                            <!-- End Order Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Banner Area -->
+        
+
+        
+       	
+        <!-- Start Counter area -->
+		<div class="counter-area area-padding parallax-bg" data-stellar-background-ratio="0.6">
+		    <div class="container">
+                <div class="fade-in">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="about-count">
+                            <div class="fun-content">
+                                    <div class="fun_text">
+                                        <a ><i class="icon icon-diamond"></i></a>
+                                        <span class="counter">421</span>
+                                        <h5>Projets Terminés</h5>
+                                    </div>
+                                    <!-- fun_text  -->
+                                    <div class="fun_text">
+                                        <a ><i class="icon icon-star"></i></a>
+                                        <span class="counter">153</span>
+                                        <h5>Clients Satisfaits</h5>
+                                    </div>
+                                    <!-- fun_text  -->
+                                    <div class="fun_text">
+                                        <a ><i class="icon icon-layers"></i></a>
+                                        <span class="counter">16</span>
+                                        <h5>Projets Actuels</h5>
+                                    </div>
+                                    <!-- fun_text  -->
+                                    <div class="fun_text">
+                                        <a ><i class="icon icon-users"></i></a>
+                                        <span class="counter">30</span>
+                                        <h5>Nombres d'Employés</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		    </div>
+		</div>
+		<!-- End Counter area -->
+
+        
+
+        
+
+        <!-- Start testimonials Area -->
+		<div class="testimonial-area area-padding">
+            <div class="test-overly"></div>
+			<div class="container">
+                <div class="fade-in">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-headline text-center">
+                                <h3>Ils nous font confiance</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Reviews-content">
+                                <!-- start testimonial carousel -->
+                                <div class="testimonial-carousel item-indicator">
+                                    <div class="single-testi text-center">
+                                        <div class="testi-img ">
+                                            <img src="img/review/7.png" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- End single item -->
+                                    <div class="single-testi text-center">
+                                        <div class="testi-img ">
+                                            <img src="img/review/8.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- End single item -->
+                                    <div class="single-testi text-center">
+                                        <div class="testi-img">
+                                            <img src="img/review/10.png" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- End single item -->
+                                    <div class="single-testi text-center">
+                                        <div class="testi-img">
+                                            <img src="img/review/9.png" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- End single item -->
+                                    <div class="single-testi text-center">
+                                        <div class="testi-img">
+                                            <img src="img/review/11.png" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- End single item -->
+                                    <div class="single-testi text-center">
+                                        <div class="testi-img">
+                                            <img src="img/review/12.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- End single item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<!-- End testimonials end -->
+        
+        <!-- Start FAQ -->
+        <div class="faq-page area-padding">
+            <div class="fade-in">
+                <div class="container">
+                <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-headline text-center">
+                                <h3>Comment avez-vous connu Grand Luxe Nettoyage ?</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Start FAQ Start -->
+                        <div class="faq">
+                            <form class="contact-form" method="post" action="">
+                                <div class="col-md-6 col-sm-6 col-xs-12">   
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label class="containe">Via un moteur de recherche
+                                            <input type="checkbox" name="chkl[ ]" value="Via un moteur de recherche">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label class="containe">Via les Réseaux sociaux
+                                            <input type="checkbox" name="chkl[ ]" value="Via les Réseaux sociaux">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label class="containe">Via les flyers
+                                            <input type="checkbox" name="chkl[ ]" value="Via les flyers">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label class="containe">Via des connaissances
+                                            <input type="checkbox" name="chkl[ ]" value="Via des connaissances">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label class="containe">Autres
+                                            <input type="checkbox" name="chkl[ ]" value="Autres">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="">
+                                        <textarea id="message" rows="7" name="message" placeholder="Avez vous des remarques ?" class="form-control" required data-error="Write your message"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div><br><br>
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <input type="submit" name="recherche" id="submit" value="Envoyer" class="contact-btn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End FAQ -->
+
+        <!--Blog Area Start-->
+        <div class="blog-area area-padding">
+            <div class="fade-in">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-headline text-center">
+                                <h3>Astuces Grand Luxe Nettoyage</h3>
+                                <p>L'humidité constitue l'environnement idéal pour le développement des moisissures et des bactéries.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="blog-grid home-blog">
+                            <!-- Start single blog -->
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="single-blog">
+                                    <div class="blog-image">
+                                        <a class="image-scale" href="#">
+                                            <img src="img/blog/ast.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                    <div class="blog-title">
+                                        <div class="blog-meta">
+                                                <span class="date-type">
+                                                    10 Mars, 2023
+                                                </span>
+                                                <span class="comments-type">
+                                                    <i class="fa fa-comment-o"></i>
+                                                    21
+                                                </span>
+                                            </div>
+                                            <a href="#">
+                                                <h4>Déshumificateur 100% naturel</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="single-blog">
+                                    <div class="blog-text">
+                                        <h4>Une recette efficace et naturelle pour lutter contre l'humidité.</h4>
+                                        <ul class="marker-list">
+                                            <li>Une bouteille d'eau en plastique vide</li>
+                                            <li>Une compresse</li>
+                                            <li>100g de gros sel</li>
+                                            <li>2 élastiques</li>
+                                            <li>10 gouttes d'huile essentielle de lavarde vraie (Facultatif) </li>
+                                        </ul>
+                                        <h4>Préparation</h4>
+                                        <ul class="marker-list">
+                                            <li>Découper la bouteille d'eau horizontalement au 2/3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="single-blog">
+                                    <div class="blog-text">
+                                        <ul class="marker-list">
+                                            <li>Placer la compresse sur le goulote et la fixer avec les élastiques.
+                                                retourner la partie supérieure de la bouteille pour avoir le goulot vers le bas, 
+                                                et former un entonnoir, puis l'emboiter sur la partie inférieure de la bouteille.
+                                            </li>
+                                            <li>Verser le gros sel dans l'entonnoir ou de l'argile, ajouter l'huile essentielle. </li>
+                                            <li>Placer votre déshumidificateur dans la pièce oncernée par l'humidité. </li>
+                                        </ul>
+                                        <a class="blog-btn" >Penser à vider cette eau régulièrement et à changer le sel ou l'argile de temps en temps</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single blog -->
+                            
+                        </div>
+                    </div>
+                    <!-- End row -->
+                </div>
+            </div>
+        </div>
+        <!--End of Blog Area-->
+
+        <!-- Start Banner Area -->
+        <div class="banner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="banner-content">
+                            <h4>Vous cherchez des services de nettoyage professionnels pour votre maison ?</h4>
+                            <div class="banner-contact">
+                                <span class="call-us"><i class="icon icon-phone-handset"></i>Numéro:  +237 697 508 919 </span><span>OU</span>
+                                <a class="banner-btn" href="https://wa.me/+237697508919">Lien Whatsapp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Banner Area -->
+
+        <!-- Start contact Area -->
+        <div class="contact-page area-padding">
+            <div class="fade-in">
+                <div class="container">
+                    <div id="contact" class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="contact-head">
+                                <h3>Demande de  <span class="color">Contact </span></h3>
+                                <p>Envoyez-nous un message à travers ce formulaire. Nous Fixerons un moment pour discuter par téléphone ou en personne afin d'en savoir plus sur vos besoins.</p>
+                                <div class="project-share">
+                                    <h5>Notre Numéro de Téléphone:</h5>
+                                    <ul class="project-social">
+                                        <li>
+                                            +237 697 508 919 / 675 162 261
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="project-share">
+                                    <h5>Notre lien social :</h5>
+                                    <ul class="project-social">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End contact icon -->
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="contact-form">
+                                <div class="row">
+                                    <form class="contact-form" method="post" action="">
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="name" name="nom" class="form-control" placeholder="Nom" required data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="email" name="email" class="email form-control" id="email" placeholder="Email" required data-error="Please enter your email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" name="sujet" id="msg_subject" class="form-control" placeholder="Sujet" required data-error="Please enter your message subject">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <textarea id="message" rows="7" name="message" placeholder="Message" class="form-control" required data-error="Write your message"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                                            <input type="submit" name="save" id="submit" value="Envoyer" class="contact-btn">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End contact Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- Start Footer bottom Area -->
+<footer class="footer-1">
+    <div class="footer-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <div class="footer-logo">
+                                <a href="#"><img src="img/logo/logo1.png" alt=""></a>
+                            </div>
+                            <p>
+                                Nous aidons les entreprises industrielles, les hôtels, les domiciles et bien d'autres
+                                à nettoyer et assainir leurs locaux de manière professionnelle et surtout avisée dans 
+                                le respect des normes et sécurité.
+                            </p>
+
+                            <div class="footer-contacts">
+                                <p><span>Tel:</span> +237 697 508 919 / 675 162 261</p>
+                                <p><span>Email:</span> grandluxenettoyage@gmail.com</p>
+                                <p><span>Localisation:</span> Rue du Stade Omnisport de Douala</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>Liens services</h4>
+                            <div class="footer-services-link">
+                                <ul class="footer-list">
+                                    <li><a href="#service">Nettoyage des Mobiliers </a></li>
+                                    <li><a href="#service">Désinfection</a></li>
+                                    <li><a href="#service">Dératisation </a></li>
+                                    <li><a href="#service">Désinsectisation</a></li>
+                                </ul>
+                                <ul class="footer-list hidden-sm">
+                                    <li><a href="#service">Nettoyage des Surfaces</a></li>
+                                    <li><a href="#service">Déménagement</a></li>
+                                    <li><a href="#service">Déreptisation </a></li>
+                                    <li><a href="#service">Placement des agents </a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-icons">
+                                <h5>Suivez-nous</h5>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>S'abonner à</h4>
+                            <p>
+                            Inscrivez-vous à notre lettre d'information mensuelle pour recevoir les dernières nouvelles, 
+                            les mises à jour et les offres exceptionnelles directement dans votre boîte de réception.
+                            </p>
+                            <div class="subs-feilds">
+                                <div class="suscribe-input">
+                                    <input type="email" class="email form-control width-80" id="sus_email" placeholder="Entrer Email">
+                                    <button type="submit" id="sus_submit" class="add-btn">souscrire</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+            </div>
+        </div>
+    </div>
+    <div style="width:60px; height:60px; position:fixed; right:6px; bottom:50px;">
+        <a href="https://wa.me/+237697508919"><img src="img/review/wa.png" style="width:80px; height: 35px;"/></a>
+    </div>
+    <!-- End footer area -->
+    <div class="footer-area-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="copyright">
+                        <p>
+                            Copyright © 2023
+                            <a href="#">MONKAM TECHNOLOGIES</a> All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+		
+        <script src="script.js"></script>
+		<!-- all js here -->
+
+		<!-- jquery latest version -->
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- owl.carousel js -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Counter js -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<!-- waypoint js -->
+		<script src="js/waypoints.js"></script>
+		<!-- isotope js -->
+        <script src="js/isotope.pkgd.min.js"></script>
+        <!-- stellar js -->
+        <script src="js/jquery.stellar.min.js"></script>
+		<!-- magnific js -->
+        <script src="js/magnific.min.js"></script>
+		<!-- venobox js -->
+		<script src="js/venobox.min.js"></script>
+        <!-- meanmenu js -->
+        <script src="js/jquery.meanmenu.js"></script>
+		<!-- Form validator js -->
+		<script src="js/form-validator.min.js"></script>
+        <!-- bootstrap-datetimepicker js -->
+        <script src="js/moment.js"></script>
+        <script src="js/bootstrap-datetimepicker.min.js"></script>
+		<!-- plugins js -->
+		<script src="js/plugins.js"></script>
+		<!-- main js -->
+		<script src="js/main.js"></script>
+        <!-- animation js -->
+        <script src="js/animation.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+                
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+        </script>
+        
+        <!--Bootstrap min js-->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!--Owl filter js-->
+        <script src="assets/js/jquery.owl-filter.js"></script>
+        <!--Owl carousel min js-->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!--Main js-->
+        <script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
